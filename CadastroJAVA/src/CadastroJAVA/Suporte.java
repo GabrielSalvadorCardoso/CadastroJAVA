@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -26,6 +27,7 @@ public class Suporte extends JFrame{
 	ButtonGroup g1 = new ButtonGroup();
 	String texto;
 	Formatter arquivo;
+	File pasta;
 	protected Suporte(){
 		super("Cadastro T.I.\\Suporte");
 		setLayout(new FlowLayout());
@@ -73,6 +75,7 @@ public class Suporte extends JFrame{
 		add(enviar);
 	}
 	
+	//classe para tratar eventos das Check Boxes e Radio Buttons 
 	private class Handler implements ItemListener {		
 		@Override		
 		public void itemStateChanged(ItemEvent evento) {
@@ -92,17 +95,23 @@ public class Suporte extends JFrame{
 			}
 		}		
 	}
-	
+	//classe para tratar eventos dos botoes
 	private class Tratador implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==enviar){
+				diretorio();
 				criar();
 				inserir();
 				fechar();
 			}
 		}
-		
+		//criar o diretorio em que serão depositados os arquivos referente aos funcionarios de Suporte
+		void diretorio(){
+			pasta = new File("C:\\CadastroJAVA\\Suporte\\");
+			pasta.mkdirs();
+		}
+		//cria o arquivo com os dados do funcionario de Suporte
 		void criar(){
 			try{
 				arquivo = new Formatter("C:\\CadastroJAVA\\Suporte\\000001.txt");
@@ -110,7 +119,7 @@ public class Suporte extends JFrame{
 				JOptionPane.showMessageDialog(null, "Arquivo nao pode ser criado");
 			}
 		}
-		
+		//escreve as informações(informadas de usuario via caixas de texto) no arquivo criado no metodo anterior
 		void inserir(){
 			try{
 				arquivo.format("Nome: "+nome.getText()+"\r\n"+"Codigo: "+codigo.getText()+
@@ -121,7 +130,7 @@ public class Suporte extends JFrame{
 				JOptionPane.showMessageDialog(null, "Arquivo somente leitura");
 			}
 		}
-		
+		//fecha o arquivo
 		void fechar(){
 			arquivo.close();
 		}
