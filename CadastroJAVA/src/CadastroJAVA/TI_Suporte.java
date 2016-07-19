@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-public class Suporte extends JFrame{
+public class TI_Suporte extends JFrame{
 	JLabel mens0 = new JLabel("Informe seu dados abaixo e clique em 'ENVIAR' quando tiver terminado");
 	JLabel name, code, sexo, sal, hor;
 	JTextField nome, codigo, salario, carga_h;	
@@ -28,7 +28,7 @@ public class Suporte extends JFrame{
 	String texto;
 	Formatter arquivo;
 	File pasta;
-	protected Suporte(){
+	protected TI_Suporte(){
 		super("Cadastro T.I.\\Suporte");
 		setLayout(new FlowLayout());
 		setSize(445,300);
@@ -44,7 +44,7 @@ public class Suporte extends JFrame{
 		code = new JLabel("Codigo:");
 		sal = new JLabel("Salario:");
 		hor = new JLabel("Carga Horaria:");
-		sexo = new JLabel("Sexo");
+		sexo = new JLabel("Sexo:");
 		
 		g1.add(fem);
 		g1.add(masc);
@@ -108,13 +108,13 @@ public class Suporte extends JFrame{
 		}
 		//criar o diretorio em que serão depositados os arquivos referente aos funcionarios de Suporte
 		void diretorio(){
-			pasta = new File("C:\\CadastroJAVA\\Suporte\\");
+			pasta = new File("C:\\CadastroJAVA\\TI\\Suporte\\");
 			pasta.mkdirs();
 		}
 		//cria o arquivo com os dados do funcionario de Suporte
 		void criar(){
 			try{
-				arquivo = new Formatter("C:\\CadastroJAVA\\Suporte\\000001.txt");
+				arquivo = new Formatter("C:\\CadastroJAVA\\TI\\Suporte\\"+codigo.getText()+".txt");
 			}catch(FileNotFoundException e){
 				JOptionPane.showMessageDialog(null, "Arquivo nao pode ser criado");
 			}
@@ -125,7 +125,7 @@ public class Suporte extends JFrame{
 				arquivo.format("Nome: "+nome.getText()+"\r\n"+"Codigo: "+codigo.getText()+
 				"\r\n"+"Salario: "+salario.getText()+"\r\n"+"Carga Horaria(diaria): "+carga_h.getText()+
 				"\r\n"+"Sexo: "+texto);
-				JOptionPane.showMessageDialog(null, "Arquivo salvo em:\n'C:\\CadastroJAVA\\Suporte'");
+				JOptionPane.showMessageDialog(null, "Arquivo salvo em:\n'C:\\CadastroJAVA\\TI\\Suporte'");
 			}catch(SecurityException s){
 				JOptionPane.showMessageDialog(null, "Arquivo somente leitura");
 			}

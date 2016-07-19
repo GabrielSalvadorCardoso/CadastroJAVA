@@ -37,13 +37,13 @@ public class TI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==suporte){
-				new Suporte();
+				new TI_Suporte();
 			}
 			if(evento.getSource()==desenv){
 				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
 			}
 			if(evento.getSource()==redes){
-				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
+				new TI_Redes();
 			}
 			if(evento.getSource()==voltar){
 				//Index.montar(true);
