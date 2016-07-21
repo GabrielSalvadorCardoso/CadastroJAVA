@@ -14,7 +14,8 @@ public class TI extends JFrame{
 		super("Cadastro TI");
 		setLayout(new FlowLayout());
 		setVisible(true);
-		setSize(300,300);		
+		setSize(300,300);
+		setResizable(false);
 				
 		suporte = new JButton("SUPORTE");
 		desenv = new JButton("DESENVOLVIMENTO");
@@ -40,7 +41,7 @@ public class TI extends JFrame{
 				new TI_Suporte();
 			}
 			if(evento.getSource()==desenv){
-				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
+				new TI_Desenvolvimento();
 			}
 			if(evento.getSource()==redes){
 				new TI_Redes();
