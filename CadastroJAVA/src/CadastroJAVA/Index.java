@@ -19,6 +19,7 @@ public class Index extends JFrame{
 		setLayout(new FlowLayout());
 		setSize(300,300);
 		setVisible(true);
+		setResizable(false);
 		setDefaultCloseOperation(Index.EXIT_ON_CLOSE);
 		
 		ti.addActionListener(listener);
