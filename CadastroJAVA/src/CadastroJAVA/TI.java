@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 public class TI extends JFrame{
 	JLabel mens0 = new JLabel("Escolha uma das subdivisoes de T.I.");
@@ -31,7 +30,7 @@ public class TI extends JFrame{
 		add(suporte);
 	    add(redes);
 	    add(desenv);
-	    add(voltar);
+	    //add(voltar);
 	}
 	
 	private class Handler implements ActionListener {
@@ -47,7 +46,7 @@ public class TI extends JFrame{
 				new TI_Redes();
 			}
 			if(evento.getSource()==voltar){
-				//Index.montar(true);
+				//new Index().hab_des(true);
 			}
 		}
 		

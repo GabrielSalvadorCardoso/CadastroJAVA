@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Formatter;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -82,10 +83,10 @@ public class TI_Redes extends JFrame{
 		public void itemStateChanged(ItemEvent evento) {
 			texto = "";
 			if(masc.isSelected()){
-				texto += "Masculino";
+				texto = "Masculino";
 			}
 			if(fem.isSelected()){
-				texto += "Feminino";
+				texto = "Feminino";
 			}
 			if(conf.isSelected()){
 				enviar.setEnabled(true);
@@ -132,8 +133,8 @@ public class TI_Redes extends JFrame{
 		public void cria_arquivo() {
 			try{
 				arquivo = new Formatter("C:\\CadastroJAVA\\TI\\Redes\\"+codigo.getText()+".txt");
-			}catch(Exception ex){
-				JOptionPane.showMessageDialog(null, "Arquivo nao pode ser criado");
+			}catch(FileNotFoundException ex){
+				JOptionPane.showMessageDialog(null, "Diretorio inesistente ou inacessivel");
 			}
 		}
 
@@ -144,7 +145,7 @@ public class TI_Redes extends JFrame{
 						"\r\nSalario: "+salario.getText()+"\r\nCarga Horaria(diaria): "+carga_h.getText()+
 						"\r\nSexo: "+texto);
 				JOptionPane.showMessageDialog(null, "Arquivo salvo em:\n'C:\\CadastroJAVA\\TI\\Redes\\'");
-			}catch(Exception e){
+			}catch(SecurityException e){
 				JOptionPane.showMessageDialog(null, "Impossivel alterar arquivo");
 			}			
 		}
