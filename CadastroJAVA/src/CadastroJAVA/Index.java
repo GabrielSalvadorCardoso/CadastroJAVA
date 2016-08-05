@@ -39,7 +39,6 @@ public class Index extends JFrame{
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==ti){
 				new TI();
-				//hab_des(false);
 			}
 			if(evento.getSource()==rh){
 				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
@@ -51,10 +50,5 @@ public class Index extends JFrame{
 				new ADM();
 			}
 		}		
-	}
-	
-	public void hab_des(boolean x){
-		setEnabled(x);
-	}
-	
+	}	
 }
