@@ -14,7 +14,6 @@ public class ADM extends JFrame{
 	ADM(){
 		super("Cadastro Administracao;");
 		setLayout(new FlowLayout());
-		//setLayout(null);
 		setSize(300,300);
 		setVisible(true);
 		setResizable(false);
@@ -43,6 +42,5 @@ public class ADM extends JFrame{
 	
 			}
 		}		
-	}
-	
+	}	
 }

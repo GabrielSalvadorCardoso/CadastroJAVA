@@ -46,10 +46,8 @@ public class TI extends JFrame{
 				new TI_Redes();
 			}
 			if(evento.getSource()==voltar){
-				//new Index().hab_des(true);
+
 			}
-		}
-		
-	}
-	
+		}		
+	}	
 }

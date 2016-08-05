@@ -102,7 +102,6 @@ public class ADM_Gerencia extends JFrame{
 	}
 /////////////////////////////PARTE DE CRIAÇÃO DE DIRETORIOS E ARQUIVOS///////////////////////////////////////
 	class Dados implements Implementador {
-
 		@Override
 		public void exec_metodos() {
 		cria_diretorio();
