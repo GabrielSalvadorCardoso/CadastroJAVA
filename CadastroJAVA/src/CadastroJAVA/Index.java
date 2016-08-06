@@ -20,8 +20,7 @@ public class Index extends JFrame{
 		setSize(300,300);
 		setVisible(true);
 		setResizable(false);
-		setDefaultCloseOperation(Index.EXIT_ON_CLOSE);
-		
+				
 		ti.addActionListener(listener);
 		admin.addActionListener(listener);
 		fin.addActionListener(listener);

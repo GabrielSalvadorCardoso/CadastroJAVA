@@ -15,6 +15,7 @@ public class Principal extends JFrame{
 		setVisible(true);
 		setResizable(false);
 		setLayout(new FlowLayout());
+		setDefaultCloseOperation(Index.EXIT_ON_CLOSE);
 		
 		cons = new JButton("CONSULTA");
 		cad = new JButton("CADASTRO");
@@ -30,7 +31,7 @@ public class Principal extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==cons){
-				//new Consulta_Index();
+				new Consulta_Index();
 			}
 			if(evento.getSource()==cad){
 				new Index();
