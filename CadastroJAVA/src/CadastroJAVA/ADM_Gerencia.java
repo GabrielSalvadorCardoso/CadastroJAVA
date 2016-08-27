@@ -16,33 +16,39 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 public class ADM_Gerencia extends JFrame{
-	JLabel mens0 = new JLabel("Informe seus dados abaixo e clique em 'ENVIAR' quando tiver terminado");
-	JLabel name = new JLabel("Nome:");
-	JLabel cod = new JLabel("Codigo:");
-	JLabel sal = new JLabel("Salario:");
-	JLabel hor = new JLabel("Carga Horaria:");
-	JLabel sexo = new JLabel("Sexo:");
-	JLabel alerta = new JLabel();
-	JTextField nome = new JTextField(20);
-	JTextField codigo = new JTextField(7);
-	JTextField salario = new JTextField(5);
-	JTextField carga_h = new JTextField(3);
-	JRadioButton masc = new JRadioButton("Masc");
-	JRadioButton fem = new JRadioButton("Fem");
-	JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
-	ButtonGroup g1 = new ButtonGroup();
-	JButton enviar = new JButton("ENVIAR");
-	Handler listener = new Handler();
-	Tratador ouvinte = new Tratador();
-	String texto;
-	File dir;
-	Formatter arquivo;
-	ADM_Gerencia(){
+	private JLabel mens0, name, cod, sal, hor, sexo, alerta;
+	private JTextField nome, codigo, salario, carga_h;
+	private JRadioButton masc, fem;
+	private JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
+	private ButtonGroup g1 = new ButtonGroup();
+	private JButton enviar = new JButton("ENVIAR");
+	private Handler listener = new Handler();
+	private Tratador ouvinte = new Tratador();
+	private String texto;
+	private File dir;
+	private Formatter arquivo;
+	protected ADM_Gerencia(){
 		super("ADM\\Gerencia");
 		setLayout(new FlowLayout());
 		setVisible(true);
 		setSize(445,300);
 		setResizable(false);
+		
+		mens0 = new JLabel("Informe seus dados abaixo e clique em 'ENVIAR' quando tiver terminado");
+		name = new JLabel("Nome:");
+		cod = new JLabel("Codigo:");
+		sal = new JLabel("Salario:");
+		hor = new JLabel("Carga Horaria:");
+		sexo = new JLabel("Sexo:");
+		alerta = new JLabel();
+		
+		nome = new JTextField(20);
+		codigo = new JTextField(7);
+		salario = new JTextField(5);
+		carga_h = new JTextField(3);
+		
+		masc = new JRadioButton("Masc");
+		fem = new JRadioButton("Fem");
 		
 		g1.add(fem);
 		g1.add(masc);
@@ -69,7 +75,7 @@ public class ADM_Gerencia extends JFrame{
 		add(alerta);
 	}
 /////////////////////////////////PARTE TRATAMENTO DE JComponents/////////////////////////////////////////////////
-	class Handler implements ItemListener {
+	private class Handler implements ItemListener {
 		@Override
 		public void itemStateChanged(ItemEvent arg0) {
 			texto = "";
@@ -87,7 +93,7 @@ public class ADM_Gerencia extends JFrame{
 		}		
 	}
 ///////////////////////////////////////PARTE TRATAMENTO DE BOTÕES/////////////////////////////////////////////////	/
-	class Tratador implements ActionListener {
+	private class Tratador implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==enviar){
@@ -101,7 +107,7 @@ public class ADM_Gerencia extends JFrame{
 		}		
 	}
 /////////////////////////////PARTE DE CRIAÇÃO DE DIRETORIOS E ARQUIVOS///////////////////////////////////////
-	class Dados implements Implementador {
+	private class Dados implements Implementador {
 		@Override
 		public void exec_metodos() {
 		cria_diretorio();

@@ -16,34 +16,38 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 public class TI_Redes extends JFrame{
-	File dir;
-	Formatter arquivo;
-	String texto;
-	JLabel mens0 = new JLabel("Informe seus dados abaixo e clique em 'ENVIAR' quando tiver terminado");
-	JLabel name = new JLabel("Nome:");
-	JLabel code = new JLabel("Codigo:");
-	JLabel sal = new JLabel("Salario: ");
-	JLabel hor = new JLabel("Carga Horaria:");
-	JLabel sexo = new JLabel("Sexo:");
-	JLabel alerta = new JLabel();
-	JTextField nome = new JTextField(20);
-	JTextField codigo = new JTextField(7);
-	JTextField salario = new JTextField(5);
-	JTextField carga_h = new JTextField(3);
-	JRadioButton fem = new JRadioButton("Fem");
-	JRadioButton masc = new JRadioButton("Masc");
-	ButtonGroup g1 = new ButtonGroup();
-	JButton enviar = new JButton("ENVIAR");
-	JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
-	Handler listener = new Handler();
-	Tratador ouvinte = new Tratador();
+	private File dir;
+	private Formatter arquivo;
+	private String texto;
+	private JLabel mens0, name, code, alerta, sal, hor, sexo;
+	private JTextField nome, codigo, salario, carga_h;
+	private JRadioButton fem, masc;
+	private ButtonGroup g1 = new ButtonGroup();
+	private JButton enviar = new JButton("ENVIAR");
+	private JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
+	private Handler listener = new Handler();
+	private Tratador ouvinte = new Tratador();
 	
-	TI_Redes(){
+	protected TI_Redes(){
 		super("Cadastro T.I.\\Redes");
 		setLayout(new FlowLayout());
 		setVisible(true);
 		setSize(445,300);
 		setResizable(false);
+		
+		mens0 = new JLabel("Informe seu dados abaixo e clique em 'ENVIAR' quando tiver terminado");
+		name = new JLabel("Nome:");
+		code = new JLabel("Codigo:");
+		sal = new JLabel("Salario:");
+		hor = new JLabel("Carga Horaria:");
+		sexo = new JLabel("Sexo:");
+		alerta = new JLabel();
+		nome = new JTextField(20);
+		carga_h = new JTextField(3);
+		salario = new JTextField(5);
+		codigo = new JTextField(7);
+		masc = new JRadioButton("Masc");
+		fem = new JRadioButton("Fem");
 		
 		enviar.setEnabled(false);
 		g1.add(masc);
@@ -78,7 +82,7 @@ public class TI_Redes extends JFrame{
 				
 	}
 /////////////////////////////////PARTE TRATAMENTO DE JComponents/////////////////////////////////////////////////	
-	class Handler implements ItemListener{		
+	private class Handler implements ItemListener{		
 		@Override
 		public void itemStateChanged(ItemEvent evento) {
 			texto = "";
@@ -96,7 +100,7 @@ public class TI_Redes extends JFrame{
 		}		
 	}
 ///////////////////////////////////////PARTE TRATAMENTO DE BOTÕES/////////////////////////////////////////////////	
-	class Tratador implements ActionListener {
+	private class Tratador implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==enviar){//se algum dos campos estiver vazio a mensagem é exibida
@@ -110,7 +114,7 @@ public class TI_Redes extends JFrame{
 		}		
 	}
 /////////////////////////////PARTE DE CRIAÇÃO DE DIRETORIOS E ARQUIVOS///////////////////////////////////////
-	class Dados implements Implementador{
+	private class Dados implements Implementador{
 		@Override
 		public void exec_metodos() {
 			cria_diretorio();

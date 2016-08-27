@@ -7,10 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 public class Consulta_Index extends JFrame{
-	JLabel mens0;
-	JButton ti, rh, adm, fin;
-	Handler listener = new Handler();
-	Consulta_Index(){
+	private JLabel mens0;
+	private JButton ti, rh, adm, fin;
+	private Handler listener = new Handler();
+	protected Consulta_Index(){
 		setTitle("Consulta");
 		setSize(300,300);
 		setVisible(true);
@@ -35,7 +35,7 @@ public class Consulta_Index extends JFrame{
 		add(adm);
 	}
 	
-	class Handler implements ActionListener {
+	private class Handler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==ti){
