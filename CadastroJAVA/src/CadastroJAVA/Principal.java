@@ -6,10 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 public class Principal extends JFrame{
-	JButton cons, cad;
-	JLabel mens0 = new JLabel("Informe abaixo o que deseja fazer");
-	Handler listener = new Handler();
-	Principal(){
+	private JButton cons, cad;
+	private JLabel mens0 = new JLabel("Informe abaixo o que deseja fazer");
+	private Handler listener = new Handler();
+	protected Principal(){
 		super("CadastroJAVA");
 		setSize(300,300);
 		setVisible(true);
@@ -27,7 +27,7 @@ public class Principal extends JFrame{
 		add(cad);
 	}
 	
-	class Handler implements ActionListener{
+	private class Handler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==cons){

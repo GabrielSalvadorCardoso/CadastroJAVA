@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 public class TI extends JFrame{
-	JLabel mens0 = new JLabel("Escolha uma das subdivisoes de T.I.");
-	JButton suporte, redes, desenv, voltar;
-	Handler listener = new Handler();
-	TI(){
+	private JLabel mens0 = new JLabel("Escolha uma das subdivisoes de T.I.");
+	private JButton suporte, redes, desenv, voltar;
+	private Handler listener = new Handler();
+	protected TI(){
 		super("Cadastro TI");
 		setLayout(new FlowLayout());
 		setVisible(true);

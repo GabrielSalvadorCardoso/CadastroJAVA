@@ -7,19 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 public class Index extends JFrame{
-	JLabel mens0 = new JLabel("Escolha abaixo o profissional a ser cadastrado");
-	JButton ti = new JButton("T.I.");
-	JButton rh = new JButton("R.H.");
-	JButton fin = new JButton("FINANCEIRO");
-	JButton admin = new JButton("ADINISTRATIVO");
-	Handler listener = new Handler(); 
+	private JLabel mens0 = new JLabel("Escolha abaixo o profissional a ser cadastrado");
+	private JButton ti, rh, fin, admin;
+	private Handler listener = new Handler(); 
 	
-	Index(){		
+	protected Index(){		
 		super("Cadastro");
 		setLayout(new FlowLayout());
 		setSize(300,300);
 		setVisible(true);
 		setResizable(false);
+		
+		ti = new JButton("T.I.");
+		rh = new JButton("R.H.");
+		fin = new JButton("FINANCEIRO");
+		admin = new JButton("ADMINISTRATIVO");
 				
 		ti.addActionListener(listener);
 		admin.addActionListener(listener);

@@ -11,13 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 public class Consulta_TI_Suporte extends JFrame{
-	JLabel mens0, alerta;
-	JTextField codigo;
-	JButton enviar;
-	Handler listener = new Handler();
-	Scanner ler;
-	String texto;
-	Consulta_TI_Suporte(){
+	private JLabel mens0, alerta;
+	private JTextField codigo;
+	private JButton enviar;
+	private Handler listener = new Handler();
+	private Scanner ler;
+	private String texto;
+	protected Consulta_TI_Suporte(){
 		super("Consulta T.I.\\Suporte");
 		setSize(300,300);
 		setResizable(true);
@@ -37,7 +37,7 @@ public class Consulta_TI_Suporte extends JFrame{
 		add(alerta);
 	}
 	
-	class Handler implements ActionListener {
+	private class Handler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==enviar){
@@ -50,14 +50,14 @@ public class Consulta_TI_Suporte extends JFrame{
 		}		
 	}
 	
-	class Dados{
+	private class Dados{
 		Dados(){
 			ler();
 			exibir();
 			fechar();
 		}
 		
-		void ler(){
+		private void ler(){
 			texto = "";
 			try{
 				ler = new Scanner(new File("C:\\CadastroJAVA\\TI\\Suporte\\"+codigo.getText()+".txt"));
@@ -70,14 +70,12 @@ public class Consulta_TI_Suporte extends JFrame{
 			}
 		}
 		
-		void exibir(){
+		private void exibir(){
 			JOptionPane.showMessageDialog(null, texto);
 		}
 		
-		void fechar(){
+		private void fechar(){
 			ler.close();
-		}
-		
-	}
-	
+		}		
+	}	
 }

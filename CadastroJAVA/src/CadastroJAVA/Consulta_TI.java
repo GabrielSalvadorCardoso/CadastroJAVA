@@ -6,10 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 public class Consulta_TI extends JFrame{
-	JButton sup, redes, desenv;
-	JLabel mens0;
-	Handler listener = new Handler();
-	Consulta_TI(){
+	private JButton sup, redes, desenv;
+	private JLabel mens0;
+	private Handler listener = new Handler();
+	protected Consulta_TI(){
 		super("Consulta TI");
 		setSize(300,300);
 		setVisible(true);
@@ -31,7 +31,7 @@ public class Consulta_TI extends JFrame{
 		add(desenv);
 	}
 	
-	class Handler implements ActionListener {
+	private class Handler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==sup){

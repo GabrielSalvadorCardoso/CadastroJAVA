@@ -6,17 +6,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 public class ADM extends JFrame{
-	JLabel mens0 = new JLabel("Escolha uma das subdivissoes administrativas");
-	JButton ger = new JButton("GERENTE");
-	JButton sec = new JButton("SECRETARIO(A)");
-	JButton pres = new JButton("PRESIDENTE");
-	Handler listener = new Handler();
-	ADM(){
+	private JLabel mens0 = new JLabel("Escolha uma das subdivissoes administrativas");
+	private JButton ger, sec, pres;
+	private Handler listener = new Handler();
+	protected ADM(){
 		super("Cadastro Administracao;");
 		setLayout(new FlowLayout());
 		setSize(300,300);
 		setVisible(true);
 		setResizable(false);
+		
+		ger = new JButton("GERENTE");
+		sec = new JButton("SECRETARIO(A)");
+		pres = new JButton("PRESIDENTE");
 		
 		ger.addActionListener(listener);
 		sec.addActionListener(listener);
@@ -29,7 +31,7 @@ public class ADM extends JFrame{
 		
 	}
 	
-	class Handler implements ActionListener{
+	private class Handler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==ger){			

@@ -16,27 +16,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 public class TI_Suporte extends JFrame{
-	JLabel mens0 = new JLabel("Informe seu dados abaixo e clique em 'ENVIAR' quando tiver terminado");
-	JLabel name = new JLabel("Nome:");
-	JLabel code = new JLabel("Codigo:");
-	JLabel sal = new JLabel("Salario:");
-	JLabel hor = new JLabel("Carga Horaria:");
-	JLabel sexo = new JLabel("Sexo:");
-	JLabel alerta = new JLabel();
-	JTextField nome = new JTextField(20);
-	JTextField carga_h = new JTextField(3);
-	JTextField salario = new JTextField(5);
-	JTextField codigo = new JTextField(7);
-	JRadioButton masc = new JRadioButton("Masc");
-	JRadioButton fem = new JRadioButton("Fem");	
-	JButton enviar = new JButton("ENVIAR");
-	JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
-	Handler listener = new Handler();
-	Tratador ouvinte = new Tratador();	
-	ButtonGroup g1 = new ButtonGroup();
-	String texto;
-	Formatter arquivo;
-	File pasta;
+	private JLabel mens0, name, code, sal, hor, sexo, alerta;
+	private JTextField nome, carga_h, salario, codigo;
+	private JRadioButton masc, fem;
+	private JButton enviar = new JButton("ENVIAR");
+	private JCheckBox conf = new JCheckBox("Confirmo as informacoes acima");
+	private Handler listener = new Handler();
+	private Tratador ouvinte = new Tratador();	
+	private ButtonGroup g1 = new ButtonGroup();
+	private String texto;
+	private Formatter arquivo;
+	private File pasta;
 	
 	protected TI_Suporte(){
 		super("Cadastro T.I.\\Suporte");
@@ -44,6 +34,20 @@ public class TI_Suporte extends JFrame{
 		setSize(445,300);
 		setVisible(true);
 		setResizable(false);
+		
+		mens0 = new JLabel("Informe seu dados abaixo e clique em 'ENVIAR' quando tiver terminado");
+		name = new JLabel("Nome:");
+		code = new JLabel("Codigo:");
+		sal = new JLabel("Salario:");
+		hor = new JLabel("Carga Horaria:");
+		sexo = new JLabel("Sexo:");
+		alerta = new JLabel();
+		nome = new JTextField(20);
+		carga_h = new JTextField(3);
+		salario = new JTextField(5);
+		codigo = new JTextField(7);
+		masc = new JRadioButton("Masc");
+		fem = new JRadioButton("Fem");
 
 		g1.add(fem);
 		g1.add(masc);
@@ -113,7 +117,7 @@ public class TI_Suporte extends JFrame{
 		}
 	}
 /////////////////////////////PARTE DE CRIAÇÃO DE DIRETORIOS E ARQUIVOS///////////////////////////////////////
-	class Dados implements Implementador {
+	private class Dados implements Implementador {
 		@Override
 		public void exec_metodos() {
 			cria_diretorio();
