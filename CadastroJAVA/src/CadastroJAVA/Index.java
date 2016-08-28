@@ -42,10 +42,10 @@ public class Index extends JFrame{
 				new TI();
 			}
 			if(evento.getSource()==rh){
-				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
+				new RH();
 			}
 			if(evento.getSource()==fin){
-				JOptionPane.showMessageDialog(null, "Falta implementar esta classe");
+				new Financeiro();
 			}
 			if(evento.getSource()==admin){
 				new ADM();

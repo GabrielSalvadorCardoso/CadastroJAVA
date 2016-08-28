@@ -28,7 +28,7 @@ public class ADM_Gerencia extends JFrame{
 	private File dir;
 	private Formatter arquivo;
 	protected ADM_Gerencia(){
-		super("ADM\\Gerencia");
+		super("Cadastro Administracao\\Gerencia");
 		setLayout(new FlowLayout());
 		setVisible(true);
 		setSize(445,300);

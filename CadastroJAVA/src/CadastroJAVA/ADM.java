@@ -38,10 +38,10 @@ public class ADM extends JFrame{
 				new ADM_Gerencia();
 			}
 			if(evento.getSource()==sec){			
-				
+				new ADM_Secretaria();
 			}
 			if(evento.getSource()==pres){			
-	
+				//new ADM_Presidencia();
 			}
 		}		
 	}	

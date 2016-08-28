@@ -41,7 +41,7 @@ public class Consulta_TI extends JFrame{
 				//new Consulta_TI_Redes();
 			}
 			if(evento.getSource()==desenv){
-				//new Consulta_TI_Desenvolvimento();
+				new Consulta_TI_Desenvolvimento();
 			}			
 		}		
 	}	
