@@ -10,25 +10,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-public class Consulta_TI_Suporte extends JFrame{
-	private JLabel mens0, alerta, code;
+public class Consulta_TI_Desenvolvimento extends JFrame{
+	private JLabel mens0, code, alerta;
 	private JTextField codigo;
-	private JButton enviar;
+	private JButton enviar = new JButton("ENVIAR");
 	private Handler listener = new Handler();
+	private File arquivo;
 	private Scanner ler;
 	private String texto;
-	protected Consulta_TI_Suporte(){
-		super("Consulta T.I.\\Suporte");
+	protected Consulta_TI_Desenvolvimento(){
+		super("Consulta T.I.\\Desenvolvimento");
 		setSize(280,300);
-		setResizable(false);
 		setVisible(true);
+		setResizable(false);
 		setLayout(new FlowLayout());
 		
 		mens0 = new JLabel("Informe o codigo do funcionario abaixo");
-		alerta = new JLabel();
 		code = new JLabel("Codigo: ");
+		alerta = new JLabel();
 		codigo = new JTextField(7);
-		enviar = new JButton("ENVIAR");
 		
 		enviar.addActionListener(listener);
 		
@@ -39,7 +39,7 @@ public class Consulta_TI_Suporte extends JFrame{
 		add(alerta);
 	}
 	
-	private class Handler implements ActionListener {
+	private class Handler implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent evento) {
 			if(evento.getSource()==enviar){
@@ -59,25 +59,25 @@ public class Consulta_TI_Suporte extends JFrame{
 			fechar();
 		}
 		
-		private void ler(){
-			texto = "";
+		public void ler(){
 			try{
-				ler = new Scanner(new File("C:\\CadastroJAVA\\TI\\Suporte\\"+codigo.getText()+".txt"));
+				texto = "";
+				ler = new Scanner(new File("C:\\CadastroJAVA\\TI\\Desenvolvimento\\"+codigo.getText()+".txt"));
 				while(ler.hasNext()){
-					texto += ler.nextLine()+"\r\n";
+					texto += ler.nextLine() + "\r\n";
 				}
 			}catch(FileNotFoundException e){
 				JOptionPane.showMessageDialog(null, "Codigo nao existe");
 				texto = "Sem informacoes";
-			}
+			}			
 		}
 		
-		private void exibir(){
+		public void exibir(){
 			JOptionPane.showMessageDialog(null, texto);
 		}
 		
-		private void fechar(){
+		public void fechar(){
 			ler.close();
-		}		
+		}
 	}	
 }

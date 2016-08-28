@@ -26,8 +26,7 @@ public class TI_Suporte extends JFrame{
 	private ButtonGroup g1 = new ButtonGroup();
 	private String texto;
 	private Formatter arquivo;
-	private File pasta;
-	
+	private File pasta;	
 	protected TI_Suporte(){
 		super("Cadastro T.I.\\Suporte");
 		setLayout(new FlowLayout());
